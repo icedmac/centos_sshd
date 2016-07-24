@@ -11,9 +11,9 @@ RUN yum install -y epel-release && \
 COPY supervisord.conf /etc/supervisord.d/supervisord.ini
 
 # generate ssh key
-#RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key
-#RUN ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key
-#RUN mkdir -p /root/.ssh && chown root.root /root && chmod 700 /root/.ssh
+RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key
+RUN ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key
+RUN mkdir -p /root/.ssh && chown root.root /root && chmod 700 /root/.ssh
 #   
 # change root password
 RUN echo 'root:password' | chpasswd
